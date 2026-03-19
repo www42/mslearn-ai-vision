@@ -4,6 +4,7 @@ lab:
     description: 'Learn how to generate AI-powered video content using the Sora model in Microsoft Foundry.'
     level: 300
     duration: 45
+    islab: true
 ---
 
 # Generate video with Sora in Microsoft Foundry
@@ -241,7 +242,7 @@ Now that you've explored the playground, let's build a Python application that p
     content = client.videos.download_content(video_id, variant="video")
     content.write_to_file(output_filename)
     print(f"Saved video to {output_filename}")
-    ``` 
+    ```
 
 1. Find the comment **Create the video with an image reference** and add the following code to complete the `generate_video_from_image` function:
 

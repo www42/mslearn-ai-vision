@@ -4,6 +4,7 @@ lab:
     description: 'Learn how to use Azure Content Understanding to analyze images and generate descriptive metadata.'
     level: 300
     duration: 30
+    islab: true
 ---
 
 # Analyze images with Azure Content Understanding
@@ -55,9 +56,9 @@ Now that you have a Foundry project, you can deploy the AI models needed for con
 
 1. Select the **Add resource** button.
 
-1. Select your subscription and the Foundry resources that match your Foundry project name. 
+1. Select your subscription and the Foundry resources that match your Foundry project name.
 
-1. Check the box for **Enable auto-deployment for required models if no default deployment available**. 
+1. Check the box for **Enable auto-deployment for required models if no default deployment available**.
 
 1. Select **Next**, then select **Save** to deploy the required models.
 

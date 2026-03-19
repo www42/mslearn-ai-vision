@@ -47,17 +47,13 @@ Microsoft Foundry uses projects to organize models, resources, data, and other a
 
     > **TIP**: You're going to need the Azure OpenAI endpoint later!
 
-## Choose a model to start a project
+## Deploy a model
 
-A Microsoft Foundry *project* provides a collaborative workspace for AI development. Let's start by choosing a model that we want to work with and creating a project to use it in.
+You'll need a model that can generate images.
 
-1. Select **Build** from the navigation bar.
+1. On the project home page, in the **Start building** menu, select **Browse models** to view the Microsoft Foundry model catalog.
 
-1. Select **Models** from the left-hand menu, and then select **Deploy a base model**.
-
-1. Enter **Flux** in the search box, and then select the **FLUX.1-Kontext-pro** model from the search results.
-
-1. Select **Deploy** with the default settings to create a deployment of the model.
+1. Search for and deploy the `FLUX.1-Kontext-pro` model using the default settings. Deployment may take a minute or so.
 
     After the model is deployed, the playground for the model is displayed.
 
@@ -119,7 +115,7 @@ The initial application files you'll need to develop the translation application
 
     > **Note**: Opening the terminal in Visual Studio Code will automatically activate the Python environment. You may need to enable running scripts on your system.
 
-1. Ensure that the terminal is open in the **translators** folder with the prefix **(.venv)** to indicate that the Python environment you created is active.
+1. Ensure that the terminal is open in the **/labfiles/image-client/python*** folder with the prefix **(.venv)** to indicate that the Python environment you created is active.
 1. Install the required Python packages by running the following command:
 
     ```
