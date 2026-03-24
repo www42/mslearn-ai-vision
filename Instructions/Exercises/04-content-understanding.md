@@ -9,11 +9,11 @@ lab:
 
 # Analyze images with Azure Content Understanding
 
-Azure Content Understanding is a capability available in Microsoft Azure AI Foundry that uses generative AI to analyze and interpret different types of unstructured content, including documents, images, audio, and video. By applying AI models to this content, the service can generate structured outputs that follow a user-defined schema. These structured outputs make it easier to integrate extracted information into automation, analytics, and search workflows.
+Azure Content Understanding in Foundry Tools is a capability available in Microsoft AI Foundry that uses generative AI to analyze and interpret different types of unstructured content, including documents, images, audio, and video. By applying AI models to this content, the service can generate structured outputs that follow a user-defined schema. These structured outputs make it easier to integrate extracted information into automation, analytics, and search workflows.
 
 One common challenge organizations face is managing large collections of visual content. Images often contain valuable information, but that information can be difficult to search or organize without descriptive metadata. Azure Content Understanding can analyze images and generate structured descriptions that help classify and index visual content, making it easier to locate relevant images and integrate them into search systems.
 
-In this exercise, you'll explore how to create and use an image analyzer in the Microsoft Azure Portal. You'll run the analyzer on sample images and review the generated descriptions that can be used as metadata for indexing and search. By the end of this lab, you'll understand how AI-generated image descriptions can help make visual content more searchable and useful in data-driven applications.
+In this exercise, you'll explore how to create and use an image analyzer in the Content Understanding Studio web interface. You'll run the analyzer on sample images and review the generated descriptions that can be used as metadata for indexing and search. By the end of this lab, you'll understand how AI-generated image descriptions can help make visual content more searchable and useful in data-driven applications.
 
 This exercise will take approximately **30** minutes.
 
@@ -186,9 +186,9 @@ The initial application files you'll need to develop the translation application
    # Set up Content Understanding client
    credential = AzureKeyCredential(key) if key else DefaultAzureCredential()
    client = ContentUnderstandingClient(
-    endpoint=endpoint,
-    credential=credential,
-    api_version=api_version)
+        endpoint=endpoint,
+        credential=credential,
+        api_version=api_version)
     ```
 
 1. Note that code for the user to input a file number or quit the program has been provided.
@@ -218,11 +218,13 @@ The initial application files you'll need to develop the translation application
                 print("  -", tag.value_string)
     ```
 
-    This code submits the selected file data to your analyuzer, polls for th results, and then displays the *Description* and *Tags* values that are returned.
+    This code submits the selected file data to your analyuzer, polls for the results, and then displays the *Description* and *Tags* values that are returned.
 
 1. Save the file (**Ctrl+S**).
 
-### Sign into Azure and run the app
+### Test the app
+
+> **Tip**: The application has been designed to use key-based authentication. However, if you prefer, you can use Microsoft Entra ID authentication by setting the key to null (or just removing the variable) and using `az login` to sign into Azure before running the app.
 
 1. In the VS Code terminal, run the application:
 
@@ -237,6 +239,7 @@ The initial application files you'll need to develop the translation application
     | 1 | 2 | 3 |
 
 1. Observe the output, which should include a description of the selected image and a collection of appropriate tags.
+1. When you're finished, enter any value other than 1, 2, or 3 to exit.
 
 ## Summary
 
