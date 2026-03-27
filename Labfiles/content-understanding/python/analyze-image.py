@@ -13,7 +13,6 @@ def main():
     # Get configuration settings 
     load_dotenv()
     endpoint = os.getenv("ENDPOINT")
-    key = os.getenv("KEY")
     analyzer_id = os.getenv("ANALYZER")
     api_version = "2025-11-01"
 

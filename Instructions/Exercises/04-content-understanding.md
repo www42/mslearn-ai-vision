@@ -112,7 +112,7 @@ Now that you have a Foundry project, you can deploy the AI models needed for con
    https://{your_foundry_resource}.services.ai.azure.com/
     ```
 
-1. Under the code example, note that your **resource key** is available. You can use this in a client application to authenticate a connection to the endpoint.
+1. Under the code example, note that your **resource key** is available. You *can* use this in a client application to authenticate a connection to the endpoint; but in this exercise we're going to use Microsoft Entra ID authentication.
 
 ## Create an image analyzer application
 
@@ -145,7 +145,7 @@ The initial application files you'll need to develop the translation application
     - `requirements.txt` - A file listing the package dependencies.
     - `images` - A folder containing images for analysis.
 
-1. In the **Explorer** pane, in the **python** folder, select the **.env** file to open it. Then update it with the  **endpoint** value for your resource endpoint (copied from the code example in Content Understanding Studio), your **key** (copied from Content Understanding Studio), and the name of your analyzer.
+1. In the **Explorer** pane, in the **python** folder, select the **.env** file to open it. Then update it with the  **endpoint** value for your resource endpoint (copied from the code example in Content Understanding Studio) and the name of your analyzer.
 
     > **Important**:Be sure to add the `https://{YOUR-RESOURCE-NAME}.services.ai.azure.com` Foundry resource endpoint, <u>not</u> the project endpoint or Azure OpenAI endpoint!
 
@@ -174,7 +174,6 @@ The initial application files you'll need to develop the translation application
    # Add references
    from azure.ai.contentunderstanding import ContentUnderstandingClient
    from azure.ai.contentunderstanding.models import AnalysisInput, AnalysisResult
-   from azure.core.credentials import AzureKeyCredential
    from azure.core.exceptions import AzureError
    from azure.identity import DefaultAzureCredential
     ```
@@ -184,7 +183,7 @@ The initial application files you'll need to develop the translation application
 
     ```python
    # Set up Content Understanding client
-   credential = AzureKeyCredential(key) if key else DefaultAzureCredential()
+   credential = DefaultAzureCredential()
    client = ContentUnderstandingClient(
         endpoint=endpoint,
         credential=credential,
@@ -224,9 +223,16 @@ The initial application files you'll need to develop the translation application
 
 ### Test the app
 
-> **Tip**: The application has been designed to use key-based authentication. However, if you prefer, you can use Microsoft Entra ID authentication by setting the key to null (or just removing the variable) and using `az login` to sign into Azure before running the app.
+1. In the terminal pane, use the following command to sign into Azure.
 
-1. In the VS Code terminal, run the application:
+    ```powershell
+    az login
+    ```
+
+    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
+
+1. When prompted, follow the instructions to sign into Azure. Then complete the sign in process in the command line, viewing (and confirming if necessary) the details of the subscription containing your Foundry resource.
+1. After you have signed in, enter the following command to run the application:
 
     ```
     python analyze-image.py

@@ -174,23 +174,20 @@ The initial application files you'll need to develop the translation application
 
 1. Note that the code in the remainder of the **main** function passes the image data and a filename to a provided function, which decodes and saves the generated image as a .png file.
 
-1. Use the **CTRL+S** command to save your changes to the code file.
+1. Save your changes to the code file.
 
 ### Run the client application
 
-1. In the VS Code terminal, sign into Azure:
+1. In the terminal pane, use the following command to sign into Azure.
 
-    ```
+    ```powershell
     az login
     ```
 
-    **<font color="red">You must sign into Azure to authenticate with your Azure OpenAI resource.</font>**
+    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter.
-
-1. When prompted, follow the instructions to sign into your Azure subscription.
-
-1. After you have signed in, run the application:
+1. When prompted, follow the instructions to sign into Azure. Then complete the sign in process in the command line, viewing (and confirming if necessary) the details of the subscription containing your Foundry resource.
+1. After you have signed in, enter the following command to run the application:
 
     ```
    python image-client.py

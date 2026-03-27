@@ -11,8 +11,6 @@ lab:
 
 In this exercise, you use a generative AI model to generate responses to prompts that include images. You'll develop an app that provides AI assistance with fresh produce in a grocery store by using Microsoft Foundry and the OpenAI SDK.
 
-> **Note**: This exercise is based on pre-release SDK software, which may be subject to change. Where necessary, we've used specific versions of packages; which may not reflect the latest available versions. You may experience some unexpected behavior, warnings, or errors.
-
 While this exercise is based on the OpenAI Python SDK, you can develop AI chat applications using multiple language-specific SDKs; including:
 
 * [OpenAI Projects for Microsoft .NET](https://www.nuget.org/packages/OpenAI)
@@ -20,15 +18,19 @@ While this exercise is based on the OpenAI Python SDK, you can develop AI chat a
 
 This exercise takes approximately **30** minutes.
 
+> **Note**: Some of the technologies used in this exercise are in preview or in active development. You may experience some unexpected behavior, warnings, or errors.
+
 ## Prerequisites
 
 Before starting this exercise, ensure you have:
 
 * An active [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account)
 * [Visual Studio Code](https://code.visualstudio.com/) installed
-* [Python version 3.13 or higher](https://www.python.org/downloads/) installed
+* [Python version **3.13.xx**](https://www.python.org/downloads/release/python-31312/) installed\*
 * [Git](https://git-scm.com/install/) installed and configured
 * [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed
+
+> \* Python 3.14 is available, but some dependencies are not yet compiled for that release. The lab has been successfully tested with Python 3.13.12.
 
 ## Create a Microsoft Foundry project
 
@@ -89,7 +91,7 @@ The initial application files you'll need to develop the translation application
     You may be prompted to confirm you trust the authors.
 
 1. In Visual Studio Code, view the **Extensions** pane; and if it is not already installed, install the **Python** extension.
-1. In the **Command Palette**, use the command `python:select interpreter`. Then select an existing environment if you have one, or create a new **Venv** environment based on your Python 3.1x installation.
+1. In the **Command Palette**, use the command `python:select interpreter`. Then select an existing environment if you have one, or create a new **Venv** environment based on your Python 3.13.x installation.
 
     > **Tip**: If you are prompted to install dependencies, you can install the ones in the *requirements.txt* file in the */labfiles/gen-ai-vision/python* folder; but it's OK if you don't - we'll install them later!
 
@@ -179,19 +181,16 @@ The initial application files you'll need to develop the translation application
 
 ## Sign into Azure and run the app
 
-1. In the VS Code terminal, sign into Azure:
+1. In the terminal pane, use the following command to sign into Azure.
 
-    ```
+    ```powershell
     az login
     ```
 
-    **<font color="red">You must sign into Azure to authenticate with your Azure OpenAI resource.</font>**
+    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter.
-
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials.
-
-1. After you have signed in, run the application:
+1. When prompted, follow the instructions to sign into Azure. Then complete the sign in process in the command line, viewing (and confirming if necessary) the details of the subscription containing your Foundry resource.
+1. After you have signed in, enter the following command to run the application:
 
     ```
    python image-chat-app.py

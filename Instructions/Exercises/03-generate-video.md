@@ -265,19 +265,16 @@ The initial application files you'll need to develop the translation application
 
 ### Sign into Azure and run the app
 
-1. In the VS Code terminal, sign into Azure:
+1. In the terminal pane, use the following command to sign into Azure.
 
-    ```
+    ```powershell
     az login
     ```
 
-    **<font color="red">You must sign into Azure to authenticate with your Azure OpenAI resource.</font>**
+    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter. See [Sign into Azure interactively using the Azure CLI](https://learn.microsoft.com/cli/azure/authenticate-azure-cli-interactively) for details.
 
-    > **Note**: In most scenarios, just using *az login* will be sufficient. However, if you have subscriptions in multiple tenants, you may need to specify the tenant by using the *--tenant* parameter.
-
-1. When prompted, follow the instructions to open the sign-in page in a new tab and enter the authentication code provided and your Azure credentials.
-
-1. After you have signed in, run the application:
+1. When prompted, follow the instructions to sign into Azure. Then complete the sign in process in the command line, viewing (and confirming if necessary) the details of the subscription containing your Foundry resource.
+1. After you have signed in, enter the following command to run the application:
 
     ```
     python video-app.py
