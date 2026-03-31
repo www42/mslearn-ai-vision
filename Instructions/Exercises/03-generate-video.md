@@ -61,7 +61,7 @@ Microsoft Foundry uses projects to organize models, resources, data, and other a
 
 You'll need a model that can process image-based input.
 
-1. In the **Start building** menu, select **Find models** (or on the **Discover** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
+1. Now you're ready to **Start building**. Select **Find models** (or on the **Discover** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
 
 1. Search for and deploy the `Sora-2` model using the default settings. Deployment may take a minute or so.
 
