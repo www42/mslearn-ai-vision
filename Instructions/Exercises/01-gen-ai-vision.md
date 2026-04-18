@@ -75,6 +75,8 @@ Now you can test your model deployment with an image-based prompt in the chat pl
 
     ![Screenshot of the chat playground page.](../media/chat-playground-image-new.png)
 
+    > **NOTE**: If the error *ERR_BAD_REQUEST: The provided data does not match the expected schema* is returned, try switching to the *Classic* portal by de-selecting the **New Foundry** option. In the classic portal, open the **Chat playground** in the **Playgrounds** page.
+
 1. Review the response, which should hopefully provide relevant guidance for desserts you can make using a mango.
 
 ## Create a client application
