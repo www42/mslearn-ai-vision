@@ -5,9 +5,13 @@ lab:
     level: 300
     duration: 45
     islab: true
+    status: 'released'
 ---
 
 # Generate video with Sora in Microsoft Foundry
+
+> **Important**: Sora 2 might be unavailable for new deployments in some regions. Before starting this lab, check whether you can deploy the model in Microsoft Foundry with your subscription and selected region. If it is unavailable, you might not be able to complete the lab as written.
+
 
 Sora is an AI model from OpenAI that creates realistic and imaginative video scenes from text instructions. The model can generate a wide range of video content, including realistic scenes, animations, and special effects. It supports several video resolutions and durations, and can also use reference images and remix existing videos.
 
@@ -44,7 +48,7 @@ Before starting this exercise, ensure you have:
 
 Microsoft Foundry uses projects to organize models, resources, data, and other assets used to develop an AI solution.
 
-1. In a web browser, open the [Microsoft Foundry portal](https://ai.azure.com) at `https://ai.azure.com` and sign in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in, and if necessary use the Foundry logo at the top left to navigate to the home page.
+1. In a web browser, open the [Microsoft Foundry portal](https://ai.azure.com) at `https://ai.azure.com` to start building; signing in using your Azure credentials. Close any tips or quick start panes that are opened the first time you sign in.
 
 1. If it is not already enabled, in the tool bar the top of the page, enable the **New Foundry** option. Then, if prompted, create a new project with a unique name; expanding the **Advanced options** area to specify the following settings for your project:
     - **Foundry resource**: *Use the default name for your resource (usually {project_name}-resource)*
@@ -61,15 +65,14 @@ Microsoft Foundry uses projects to organize models, resources, data, and other a
 
 You'll need a model that can process image-based input.
 
-1. Now you're ready to **Start building**. Select **Find models** (or on the **Discover** page, select the **Models** tab) to view the Microsoft Foundry model catalog.
-
-1. Search for and deploy the `Sora-2` model using the default settings. Deployment may take a minute or so.
+1. Now you're ready to explore models. On the **Discover** page, select the **Models** tab to view the Microsoft Foundry model catalog.
+1. Search for and deploy a video-generation model, such as `Sora-2` or another current equivalent available in your region. Deployment may take a minute or so.
 
     > **Note**: Access to video-generation models is restricted - you may need to register your subscription for the Sora-2 model to be availalable.
 
 1. When the model has been deployed, view the model playground page that is opened, in which you can chat with the model.
 
-    > **TIP**: Note the model deployment name (which by default should be *Sora-2*) - you'll need this later!
+    > **TIP**: Note the model deployment name you use - you'll need this later!
 
 ## Test the model in the playground
 
@@ -97,7 +100,7 @@ Now you can test your vide-generation model deployment in the chat playground.
 
 ## Create a video generation application
 
-Now that you've explored the playground, let's build a Python application that programmatically generates videos using the Sora 2 API.
+Now that you've explored the playground, let's build a Python application that programmatically generates videos using a Foundry video-generation model, such as Sora 2.
 
 ### Get application files from GitHub
 
@@ -195,7 +198,7 @@ The initial application files you'll need to develop the translation application
     video = generate_video_from_image(
         image_path="reference.png",
         prompt="The scene comes to life with gentle movement and ambient lighting",
-        size="720x1280",
+        size="1280x720",
         seconds='4'
     )
     if video.status == "completed":
